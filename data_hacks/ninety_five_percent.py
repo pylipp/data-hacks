@@ -40,12 +40,11 @@ def run(stream=sys.stdin, output=sys.stdout):
         except:
             print("invalid line %r" % line, file=sys.stderr)
     print(calc_95(data, count), file=output)
-
 def calc_95(data, count):
     # find the time it took for x entry, where x is the threshold
     threshold = Decimal(count) * Decimal('.95')
     start = Decimal(0)
-    times = data.keys()
+    times = list(data.keys())
     times.sort()
     for t in times:
         # increment our count by the # of items in this time bucket

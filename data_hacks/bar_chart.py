@@ -20,7 +20,6 @@ Generate an ascii bar chart for input data
 
 https://github.com/bitly/data_hacks
 """
-from __future__ import print_function
 import sys
 import math
 from collections import defaultdict
@@ -66,11 +65,9 @@ def run(input_stream, options, output=sys.stdout):
     max_value = max(data.values())
     scale = int(math.ceil(float(max_value) / value_characters))
     scale = max(1, scale)
-
     print(
         "# each " + options.dot + " represents a count of %d. total %d" % (scale, total),
         file=output)
-
     if options.sort_values:
         data = [[value, key] for key, value in data.items()]
         data.sort(key=lambda x: x[0], reverse=options.reverse_sort)
