@@ -230,8 +230,7 @@ def histogram(stream, options, output=sys.stdout):
                 break
 
     # auto-pick the hash scale
-    if max(bucket_counts) > 75:
-        bucket_scale = int(max(bucket_counts) / 75)
+    bucket_scale = int(max(bucket_counts) / 75) + 1
 
     print("# NumSamples = %d; Min = %0.2f; Max = %0.2f" %
           (samples, min_v, max_v), file=output)
