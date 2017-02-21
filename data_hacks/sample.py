@@ -56,7 +56,7 @@ if __name__ == "__main__":
 
     try:
         sample_rate = get_sample_rate(sys.argv[-1])
-    except ValueError, e:
+    except ValueError as e:
         print(e, file=sys.stderr)
         parser.print_usage()
         sys.exit(1)
